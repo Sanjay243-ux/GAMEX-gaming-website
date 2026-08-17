@@ -4,6 +4,28 @@ const modalText=document.getElementById("modalText");
 const modalInput=document.getElementById("modalInput");
 const modalAction=document.getElementById("modalAction");
 const toast=document.getElementById("toast");
+const themeToggle=document.getElementById("themeToggle");
+
+function applyTheme(mode){
+  const isLight=mode==="light";
+  document.body.classList.toggle("light-mode", isLight);
+  document.documentElement.style.colorScheme = isLight ? "light" : "dark";
+  if(themeToggle){
+    const icon=themeToggle.querySelector(".theme-icon");
+    if(icon) icon.textContent = isLight ? "☀️" : "🌙";
+    themeToggle.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
+  }
+  localStorage.setItem("gamex-theme", mode);
+}
+
+function initTheme(){
+  const savedTheme=localStorage.getItem("gamex-theme");
+  const preferredTheme=window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  applyTheme(savedTheme || preferredTheme);
+}
+
+if(themeToggle){themeToggle.addEventListener("click",()=>applyTheme(document.body.classList.contains("light-mode")?"dark":"light"));}
+initTheme();
 
 function scrollToSection(id){document.getElementById(id)?.scrollIntoView({behavior:"smooth"})}
 function showMessage(message){toast.textContent=message;toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),2500)}
@@ -33,7 +55,7 @@ const menu=document.querySelector(".menu-toggle"), nav=document.querySelector(".
 menu.addEventListener("click",()=>{
   const open=nav.style.display==="flex";
   nav.style.display=open?"none":"flex";
-  if(!open){nav.style.position="absolute";nav.style.top="76px";nav.style.left="0";nav.style.right="0";nav.style.padding="20px";nav.style.background="#08090d";nav.style.flexDirection="column";nav.style.gap="18px";}
+  if(!open){nav.style.position="absolute";nav.style.top="76px";nav.style.left="0";nav.style.right="0";nav.style.padding="20px";nav.style.background="var(--bg)";nav.style.flexDirection="column";nav.style.gap="18px";}
 });
 window.addEventListener("scroll",()=>{
   const sections=["home","games","news","esports","videos","community"];
