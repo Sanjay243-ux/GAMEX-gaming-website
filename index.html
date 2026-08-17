@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08090d">
+  <title>GAMEX — Ultimate Gaming Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="#home"><span>🎮</span> GAME<span>X</span></a>
+    <button class="menu-toggle" aria-label="Open menu">☰</button>
+    <nav class="nav">
+      <a class="active" href="#home">HOME</a>
+      <a href="#games">GAMES</a>
+      <a href="#news">NEWS</a>
+      <a href="#esports">ESPORTS</a>
+      <a href="#videos">VIDEOS</a>
+      <a href="#community">COMMUNITY</a>
+    </nav>
+    <div class="header-actions">
+      <button class="login" id="loginBtn">LOGIN</button>
+      <button class="signup" id="signupBtn">SIGN UP</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="eyebrow">DISCOVER. PLAY. WIN.</div>
+        <h1>THE ULTIMATE<br><span>GAMING EXPERIENCE</span></h1>
+        <p>Discover new games, follow esports, read the latest gaming news and join a community built for players.</p>
+        <div class="hero-buttons">
+          <button class="primary" onclick="scrollToSection('games')">EXPLORE GAMES</button>
+          <button class="secondary" onclick="openTrailer()">▶ WATCH TRAILER</button>
+        </div>
+        <div class="hero-dots"><i class="active"></i><i></i><i></i></div>
+      </div>
+      <div class="hero-character" aria-hidden="true">⚔</div>
+    </section>
+
+    <section class="section" id="games">
+      <div class="section-heading">
+        <h2>FEATURED GAMES</h2>
+        <button class="text-btn" onclick="filterGames('all')">VIEW ALL →</button>
+      </div>
+      <div class="filters">
+        <button class="filter active" data-filter="all">ALL</button>
+        <button class="filter" data-filter="fps">FPS</button>
+        <button class="filter" data-filter="rpg">RPG</button>
+        <button class="filter" data-filter="battle">BATTLE ROYALE</button>
+      </div>
+      <div class="game-grid">
+        <article class="game-card" data-category="rpg">
+          <div class="cover cover-1"><span>ELDEN<br>RING</span></div>
+          <div class="card-body"><h3>Elden Ring</h3><p>Open World RPG</p><div><b>RPG</b><b>ADVENTURE</b></div></div>
+        </article>
+        <article class="game-card" data-category="fps">
+          <div class="cover cover-2"><span>CALL<br>OF DUTY</span></div>
+          <div class="card-body"><h3>Call of Duty</h3><p>Modern Warfare</p><div><b>FPS</b><b>ACTION</b></div></div>
+        </article>
+        <article class="game-card" data-category="rpg">
+          <div class="cover cover-3"><span>GOD<br>OF WAR</span></div>
+          <div class="card-body"><h3>God of War</h3><p>Ragnarök</p><div><b>RPG</b><b>ACTION</b></div></div>
+        </article>
+        <article class="game-card" data-category="battle">
+          <div class="cover cover-4"><span>APEX<br>LEGENDS</span></div>
+          <div class="card-body"><h3>Apex Legends</h3><p>Battle Royale</p><div><b>BATTLE</b><b>FPS</b></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split" id="news">
+      <div>
+        <div class="section-heading"><h2>LATEST NEWS</h2><button class="text-btn">VIEW ALL →</button></div>
+        <div class="news-list">
+          <article><div class="news-icon">⚡</div><div><h3>New Gaming Tournament Announced</h3><small>August 13, 2026</small></div><strong>↗</strong></article>
+          <article><div class="news-icon">🔥</div><div><h3>Top 10 Games You Should Play</h3><small>August 10, 2026</small></div><strong>↗</strong></article>
+          <article><div class="news-icon">🏆</div><div><h3>Esports Championship Begins Soon</h3><small>August 08, 2026</small></div><strong>↗</strong></article>
+        </div>
+      </div>
+      <aside class="featured-news">
+        <div class="mini-label">EDITOR'S PICK</div>
+        <h3>Level up your gaming setup</h3>
+        <p>Build a setup that looks as good as it plays.</p>
+        <button class="primary" onclick="showMessage('Setup guide coming soon!')">READ ARTICLE</button>
+      </aside>
+    </section>
+
+    <section class="section esports" id="esports">
+      <div class="section-heading"><h2>ESPORTS & TOURNAMENTS</h2><button class="text-btn">SEE ALL →</button></div>
+      <div class="tournament-grid">
+        <article><span class="status live">● LIVE</span><h3>GAMEX Championship</h3><p>FPS • 32 Teams</p><button class="secondary" onclick="showMessage('Tournament page coming soon!')">VIEW EVENT</button></article>
+        <article><span class="status">UPCOMING</span><h3>Weekend Battle Cup</h3><p>Battle Royale • 64 Players</p><button class="secondary" onclick="showMessage('Registration opens soon!')">REGISTER</button></article>
+        <article><span class="status">UPCOMING</span><h3>RPG Masters</h3><p>RPG • Solo Competition</p><button class="secondary" onclick="showMessage('Registration opens soon!')">REGISTER</button></article>
+      </div>
+    </section>
+
+    <section class="section community" id="community">
+      <div class="community-box">
+        <div><div class="eyebrow">JOIN THE COMMUNITY</div><h2>READY TO LEVEL UP?</h2><p>Connect with gamers, share clips, discuss games and find your next squad.</p></div>
+        <button class="primary" id="communityBtn">JOIN NOW</button>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div><strong>10K+</strong><span>GAMES</span></div>
+      <div><strong>50K+</strong><span>MEMBERS</span></div>
+      <div><strong>500+</strong><span>NEWS ARTICLES</span></div>
+      <div><strong>100+</strong><span>TOURNAMENTS</span></div>
+    </section>
+  </main>
+
+  <footer id="videos">
+    <div class="footer-logo">🎮 GAMEX</div>
+    <p>© 2026 GAMEX. Built for gamers.</p>
+    <div><a href="#home">Home</a><a href="#games">Games</a><a href="#news">News</a><a href="#community">Community</a></div>
+  </footer>
+
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <button class="close" id="closeModal">×</button>
+      <h2 id="modalTitle">Welcome to GAMEX</h2>
+      <p id="modalText">Enter your details to continue.</p>
+      <input id="modalInput" type="email" placeholder="Your email">
+      <button class="primary full" id="modalAction">CONTINUE</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
